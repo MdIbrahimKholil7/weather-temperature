@@ -21,11 +21,11 @@ const setInnerText=(id,text)=>{
 
 const showData=data=>{
     setInnerText('city-name',`${data.name}`)
-    setInnerText('temp',`${data.main.temp}`)
+    setInnerText('temp',`${data?.main?.temp ?  data?.main?.temp : 'result not found' }`)
     setInnerText('cloud',`${data.weather[0].main}`)
     const imageIcon=document.getElementById('image-icon');
     const iconUrl=`http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
-    imageIcon.src=iconUrl;
+    imageIcon.setAttribute('src',iconUrl)
     console.log(data)
     // cityName.innerText=`${data.name}`
 }
